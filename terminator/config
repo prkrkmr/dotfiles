@@ -1,0 +1,51 @@
+[global_config]
+  handle_size = 0
+  inactive_color_offset = 0.55
+  tab_position = hidden
+  title_hide_sizetext = True
+[keybindings]
+  switch_to_tab_1 = <Primary>1
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 0ca973e7-94ac-4f3a-a751-49c6820fbe0a
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 628:362
+      size = 695, 379
+      title = prakhar@primer ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 0ca973e7-94ac-4f3a-a751-49c6820fbe0a
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#2a2a2a"
+    background_darkness = 0.7
+    background_image = None
+    background_type = transparent
+    cursor_color = "#888888"
+    font = Monaco 11
+    foreground_color = "#d0d0d0"
+    palette = "#151515:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#d0d0d0:#505050:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#f5f5f5"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    urgent_bell = True
+    use_system_font = False
+    visible_bell = True
+  [[defaul]]
+    background_color = "#ebebeb"
+    background_image = None
+    font = Inconsolata Medium 12.5
+    foreground_color = "#839496"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    use_system_font = False
