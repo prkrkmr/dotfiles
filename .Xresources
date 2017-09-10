@@ -1,1 +1,131 @@
-/home/prakhar/.Xresources
+#define base00 #1D1F21
+#define base01 #282828
+#define base02 #383838
+#define base03 #585858
+#define base04 #B8B8B8
+#define base05 #D8D8D8
+#define base06 #E8E8E8
+#define base07 #F8F8F8
+#define base08 #AB4642
+#define base09 #DC9656
+#define base0A #F7CA88
+#define base0B #A1B56C
+#define base0C #86C1B9
+#define base0D #7CAFC2
+#define base0E #BA8BAF
+#define base0F #A16946
+
+!*.foreground:   base05
+!*.background:   base00
+!*.cursorColor:  base05
+
+!*.color0:       base00
+!*.color1:       base08
+!*.color2:       base0B
+!*.color3:       base0A
+!*.color4:       base0D
+!*.color5:       base0E
+!*.color6:       base0C
+!*.color7:       base05
+
+!*.color8:       base03
+!*.color9:       base08
+!*.color10:      base0B
+!*.color11:      base0A
+!*.color12:      base0D
+!*.color13:      base0E
+!*.color14:      base0C
+!*.color15:      base07
+
+*.color16:      base09
+*.color17:      base0F
+*.color18:      base01
+*.color19:      base02
+*.color20:      base04
+*.color21: 		base06
+
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+URxvt.font: xft:monaco:antialias=true:autohinting=true:pixelsize=15
+URxvt.boldFont: xft:monaco:antialias=true:autohinting=true:pixelsize=15
+
+URxvt*background:                     #1d1f21
+URxvt*foreground:                     #c5c8c6
+URxvt*cursorColor:                    #c5c8c6
+
+URxvt*scrollColor:                    #c5c8c6
+URxvt*highlightColor:                 #373b41
+URxvt*highlightTextColor:             #b4b7b4
+
+URxvt*color0:                         #1d1f21
+URxvt*color1:                         #CC342B
+URxvt*color2:                         #198844
+URxvt*color3:                         #FBA922
+URxvt*color4:                         #3971ED
+URxvt*color5:                         #A36AC7
+URxvt*color6:                         #3971ED
+URxvt*color7:                         #c5c8c6
+URxvt*color8:                         #969896
+URxvt*color9:                         #CC342B
+URxvt*color10:                        #198844
+URxvt*color11:                        #FBA922
+URxvt*color12:                        #3971ED
+URxvt*color13:                        #A36AC7
+URxvt*color14:                        #3971ED
+URxvt*color15:                        #ffffff
+
+URxvt*color16:                        #F96A38
+URxvt*color17:                        #3971ED
+URxvt*color18:                        #282a2e
+URxvt*color19:                        #373b41
+URxvt*color20:                        #b4b7b4
+!
+! Generated with :
+! XRDB2Xreources.py
+!
+*.foreground:  #ddeedd
+*.background:  #1c1c1c
+*.cursorColor: #e2bbef
+!
+! Black
+*.color0:      #3d352a
+*.color8:      #554444
+!
+! Red
+*.color1:      #cd5c5c
+*.color9:      #cc5533
+!
+! Green
+*.color2:      #86af80
+*.color10:     #88aa22
+!
+! Yellow
+*.color3:      #e8ae5b
+*.color11:     #ffa75d
+!
+! Blue
+*.color4:      #6495ed
+*.color12:     #87ceeb
+!
+! Magenta
+*.color5:      #deb887
+*.color13:     #996600
+!
+! Cyan
+*.color6:      #b0c4de
+*.color14:     #b0c4de
+!
+! White
+*.color7:      #bbaa99
+*.color15:     #ddccbb
+!
+! Bold, Italic, Underline
+*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:URxvt*color21:                        #e0e0e0
+URxvt.letterSpace: -1
