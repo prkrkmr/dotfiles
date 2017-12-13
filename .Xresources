@@ -51,9 +51,8 @@ Xft.hintstyle: hintslight
 Xft.dpi: 96
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
-URxvt.font: xft:monaco:antialias=true:autohinting=true:pixelsize=14
-URxvt.boldFont: xft:monaco:antialias=true:autohinting=true:pixelsize=14
-
+URxvt.font: xft:Monaco:antialias=true:autohinting=true:pixelsize=13.5
+URxvt.boldFont: xft:Monaco:antialias=true:autohinting=true:pixelsize=13.5
 URxvt*background:                     #1d1f21
 URxvt*foreground:                     #c5c8c6
 URxvt*cursorColor:                    #c5c8c6
@@ -128,6 +127,7 @@ URxvt*color20:                        #b4b7b4
 *.colorBD:     #ffffff
 !*.colorIT:
 !*.colorUL:URxvt*color21:                        #e0e0e0
+URxvt.perl-lib: ~/.urxvt/ext/
 URxvt.letterSpace: -1
 URxvt.perl-ext-common: default,clipboard
 URxvt.keysym.Control-Shift-V: perl:clipboard:paste

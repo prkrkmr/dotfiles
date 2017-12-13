@@ -10,113 +10,93 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
+#Semi transparent
+;background = #aa222222
+#white
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #ffffff
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+#secondary = #e60053
+#primary = #ffb52a
+#secondary = #e60053
+primary = ${xrdb:color4}
+secondary =  ${xrdb:color7}
+ 
+third = #407ee7
 alert = #bd2c40
 
 
 [bar/top]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
-radius = 6.0
-
+height = 30 
+radius = 0
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-line-size = 2
+line-size = 1
 line-color = #f00
-
-border-size = 5
-border-color = #00000000
-
-padding-left = 5
-padding-right = 5
-
+border-size = 1 
+border-color = #001f0
+padding-left = 
+padding-right = 
 module-margin-left = 1
 module-margin-right = 1
-
-font-0 = fixed:pixelsize=10;0
-font-1 = FontAwesome:style=Regular:pixelsize=10;-2
-
-
-
-modules-left =  i3  separator mpd  
-modules-center =     
-modules-right = xkeyboard powermenu 
-
-tray-position = right
-tray-padding = 2
-
-
-
+font-1 = Monaco:pixelsize=10;0
+font-0 = FontAwesome:style=Regular:pixelsize=10;0
+modules-left =  i3  
+modules-center = mpd  
+modules-right = wlan
 
 
 [bar/bottom]
-background = #000
-foreground = ${xrdb:URxvt*foreground}
+font-1 = Monaco:pixelsize=10;0
+font-0 = FontAwesome:style=Regular:pixelsize=10;0
 width = 100%
-height = 31 
-radius = 7.0
+height = 30
+radius = 0
 fixed-center = false
-
-;background = ${colors.background}
-;foreground = ${colors.foreground}
-
-line-size = 3
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 1
 line-color = #f00
-
-border-size = 4
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
+border-size = 1
+border-color =#001f0
+padding-left = 0
+padding-right = 0
 module-margin-left = 1
 module-margin-right = 2
-
-font-1 = monaco:size=10;0
-font-2 = Termsynu:size=10;-1
-font-3 = unifont:size=10;-3
-font-4 = siji:size=6;-3
-font-5 = FreeMono:size=10;0
-font-0 = FontAwesome:size=10;0
-
-
-
-modules-left = i3     
-modules-center =  mpd 
-modules-right =   volume eth  battery cpu temperature  date 
-
+modules-left = script
+modules-center = 
+modules-right = bright separator volume separator battery separator cpu separator temperature separator date 
 tray-position = right
-tray-padding = 2
-
+tray-padding = 1
 bottom = true
-
-
-
-
-
-
 
 [module/separator]
 type = custom/text
 content = |
-content-foreground = #FFFFFF
+content-foreground = #ff4500 
 
+[module/bright]
+type = custom/script
+format = <label> 
+exec = light -b | cut -f1 -d"."
+label =  
+scroll-up = light -A 5
+scroll-down = light -U 5
+interval = 10
 
 [module/script]
 type = custom/script
 exec = whoami
 #exec-if =
-format=  <label>
-format-underline = ${colors.primary}
+format=    %{T2}<label>%{T-}
+;format=    <label>
+#format-underline = ${colors.primary}
 format-prefix = "🖧 "
 format-prefix-foreground = #5b
+
+
 
 
 
@@ -128,8 +108,9 @@ format-online =   <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> <
 ;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
 label-song =  %artist% - %title%
-format-online-underline = ${colors.primary}
+format-online-underline = 
 
+icon-seekb = 
 icon-play = 
 icon-stop = 
 icon-next = 
@@ -137,6 +118,7 @@ icon-prev = 
 icon-pause = 
 icon-random = 
 icon-repeat = 
+icon-seekf = 
 bar-progress-width = 10
 #bar-progress-indicator = |
 #bar-progress-indicator = ─░─
@@ -158,16 +140,17 @@ blacklist-0 =  lock
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+;format-prefix-underline = ${colors.secondary}
 
 label-layout = 
 ;label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
+;label-indicator-background = ${colors.secondary}
+;label-indicator-underline = ${colors.secondary}
+label-indicator-background = #e6005c
+label-indicator-underline = #e6005c
 
 
 [module/bspwm]
@@ -231,20 +214,22 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 
 [module/xbacklight]
-type = internal/backlight
-
+type = internal/xbacklight
+interval = 0.1
 format =  <label>
 label = "%percentage%"
-label-underline = ${colors.primary}
-format-underline = ${colors.primary}
+label-underline = 
+enable-scroll = false
+;format-underline = ${colors.primary}
 
 
-
-
-
-[module/backlight-acpi]
+[module/backlight]
 inherit = module/xbacklight
 type = internal/backlight
+interval = 0.1
+scroll-up = light -A 5
+scroll-down = light -U 5
+format =  <label>
 card = intel_backlight
 
 [module/cpu]
@@ -252,7 +237,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = #ffffff
-format-underline = #f90000
+;format-underline = #f90000
 label =: %percentage%%
 
 [module/memory]
@@ -260,18 +245,20 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+;format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = enp9s0 
-interval = 0.5
+interface = wlp8s0 
+interval = 1
 
 format-connected = <ramp-signal> <label-connected>
-#format-connected-underline = #9f78e1
-format-connected-underline = #407ee7
-label-connected = %essid%  :%downspeed% :%upspeed% 
+format-connected-underline = 
+;format-connected-underline = ${colors.primary}
+label-connected = %essid%   %downspeed%  %upspeed% 
+;label-connected =  :%downspeed% :%upspeed% 
+
 
 format-disconnected ="   Not Connected"
 format-disconnected-underline = ${self.format-connected-underline}
@@ -287,10 +274,10 @@ ramp-signal-foreground = #ffffff
 
 [module/eth]
 type = internal/network
-interface = %defaul_interface%
+interface = enp3s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.primary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -316,19 +303,19 @@ time = "   %I:%M%p"
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #407ee7
-;format-underline = #0a6cf5
+;format-underline = #407ee7
+;format-underline = ${colors.primary}
 
-label = %date% %time%
+label = %date% | %time%
 
 
 [module/volume]
 type = internal/volume
 format-volume = <label-volume>
 format-volume-prefix = " "
-format-volume-underline = #ffb52a
+format-volume-underline = 
 label-volume = "%percentage%"
-label-volume-underline = #ffb52a
+;label-volume-underline = ${colors.primary}
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
@@ -353,25 +340,19 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-
-
-
-
-
-
 [module/battery]
 type = internal/battery
 battery = BAT1
 adapter = ADP1
-full-at = 98
+full-at = 97
 
 #format-charging = Charging... <label-charging>
 format-charging =  <animation-charging> <label-charging>
-format-charging-underline = ${colors.primary}
+format-charging-underline = 
 
 #format-discharging = BAT: <label-discharging> 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+;format-discharging-underline = ${self.format-charging-underline}
 label-discharging = %percentage%% - %time%
 time-format = %k:%M
 
@@ -408,9 +389,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format =  :<ramp> <label>
-format-underline = #f50a4d
+;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+;format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
@@ -423,15 +404,16 @@ ramp-foreground = ${colors.foreground-alt}
 
 
 
+
 [module/powermenu]
 type = custom/menu
 expand-left = true
 
 format-spacing = 1
 label-open = 
-label-open-foreground = ${colors.secondary}
+label-open-foreground = #f90000
 label-close = cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = #f90000
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -462,7 +444,7 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 4
+margin-bottom = 4
 
 ; vim:ft=dosini
